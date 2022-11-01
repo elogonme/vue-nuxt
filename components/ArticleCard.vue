@@ -13,7 +13,7 @@
       {{ article.teaser }}
     </p>
     <NuxtLink
-      :to="'/' + slug"
+      :to="localePath(`/${slug}${slug.slice(-1) !== '/' ? '/' : ''}`)"
       class="block pt-2 text-sm text-right text-pink-400 underline"
       >Read more</NuxtLink
     >
@@ -22,4 +22,6 @@
 
 <script setup>
 defineProps({ article: Object, slug: String });
+
+const localePath = useLocalePath();
 </script>
